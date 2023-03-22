@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Sobrenome</th>
+      <th scope="col">Endereços</th>
+      <th scope="col">Status</th>
+      <th scope="col">Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each clientes}}
+    <tr>
+      <td>{{ this.nome }}</td>
+      <td>{{ this.sobrenome }}</td>
+      {{#with endereco}}
+      <td>Residencial: {{ residencial }}<br>
+        Comercial: {{ comercial }}</td>
+      {{else}}
+      <td>Sem endereço cadastrado</td>
+      {{/with}}
+      {{#if this.status}}
+      <td>Ativo</td>
+      {{else}}
+      <td>Inativo</td>
+      {{/if}}
+      <td>{{#link 'Linkedin' this.link}}{{/link}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
